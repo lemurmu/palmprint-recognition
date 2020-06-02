@@ -54,7 +54,7 @@ namespace PalmprintRecognition
                     {
                         MWArray arr = pCA.palmprintPCA(trainingPath, testImage);
                         mathImage = Convert.ToString(arr);
-                        Thread.Sleep(500);
+                        Thread.Sleep(500);//故意在此处休眠模拟识别时间
                     }
                     catch (Exception ex)
                     {
@@ -67,7 +67,7 @@ namespace PalmprintRecognition
 
                 matchpic.Image = Image.FromFile(equalImage);
                 int index = equalImage.LastIndexOf("\\");
-                resultlab.Text = $"匹配到的掌纹为训练库中的{equalImage.Substring(index, equalImage.Length - index)}";
+                resultlab.Text = $"匹配到的掌纹为训练库中的{equalImage.Substring(index + 1, equalImage.Length - index - 1)}";
             }
             catch (Exception ex)
             {
